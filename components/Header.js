@@ -31,7 +31,7 @@ function Header() {
                     type="text" 
                     className="flex-grow w-full focus:outline-none"
                 />
-                <XIcon className="h-7 sm:mr-3 text-gray-500 cursor-pointer transition duration-100 transform hover:scale-125"onClick={()=> searchInputRef.current.value=""} /> 
+                <XIcon className="h-7 sm:mr-3 text-gray-500 cursor-pointer transition duration-100 transform hover:scale-125" onClick={()=> searchInputRef.current.value=""} /> 
                 <MicrophoneIcon className="mr-2 h-6 hidden sm:inline-flex text-blue-500 border-l-2 pl-4 border-gray-300"/>
                 
                 <button type="submit" onClick={search} ><SearchIcon className=" mb-1 h-5 hidden sm:inline-flex text-blue-500 cursor-pointer"/></button>
