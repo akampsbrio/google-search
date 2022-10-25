@@ -1,12 +1,10 @@
 import Head from 'next/head';
 import Header from '../components/Header';
 import SearchResults from '../components/SearchResults';
-import {API_KEY, CONTEXT_KEY} from '../keys';
 import Response from '../Response';
 import {useRouter} from 'next/router';
 
 function Search({results}) {
-    console.log(results);
     const router = useRouter();
   return (
     <div>
@@ -28,6 +26,11 @@ export async function getServerSideProps(context){
     const useDummyData = false;
     const startIndex = context.query.start || "0";
     //get results from server
+    const API_KEY = process.env.API_KEY;
+    const CONTEXT_KEY = process.env.CONTEXT_KEY;
+
+    console.log(`${API_KEY} and ${CONTEXT_KEY}`);
+
     const data = useDummyData ? Response : await fetch(`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${context.query.term}`).then((response) =>response.json());
 
     //pass results to the client
